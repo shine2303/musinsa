@@ -1,7 +1,7 @@
-package com.musinsa.backend.brand.controller;
+package com.musinsa.backend.product.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BrandController {
+public class ProductController {
 }
