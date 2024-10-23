@@ -1,10 +1,10 @@
-package com.musinsa.search;
+package com.musinsa.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MusinsaApplicationTests {
+class BackendApplicationTests {
 
     @Test
     void contextLoads() {

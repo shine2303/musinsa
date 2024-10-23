@@ -4,7 +4,6 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
-bootJar.enabled = false // 빌드시 현재 모듈(multi-module)의 .jar를 생성
 group = 'com.musinsa'
 version = '0.0.1-SNAPSHOT'
 
@@ -14,25 +13,21 @@ java {
     }
 }
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 tasks.named('bootJar') { //빌드할 때 bootjar 파일로 하겠다는 의미
-    enabled = false
+    enabled = true
 }
 
 tasks.named('jar') { //빌드할 때 jar 파일로 하겠다는 의미

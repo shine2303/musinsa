@@ -1,13 +1,13 @@
-package com.musinsa.search;
+package com.musinsa.frontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MusinsaApplication {
+public class FrontendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MusinsaApplication.class, args);
+        SpringApplication.run(FrontendApplication.class, args);
     }
 
 }
