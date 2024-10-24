@@ -1,4 +1,4 @@
-package com.musinsa.backend.brand.controller;
+package com.musinsa.backend.internal.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 

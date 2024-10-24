@@ -1,7 +1,8 @@
-package com.musinsa.backend.product.controller;
+package com.musinsa.backend.external.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProductController {
+public class SearchController {
+
 }
