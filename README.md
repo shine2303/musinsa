@@ -11,6 +11,7 @@
 - spring boot : 3.3.4
 - java : openjdk 17
 - mybatis : 3.0.3
+- swagger : springdoc-openapi 2.5.0
 - db : h2
 - build 툴 : gradle
 

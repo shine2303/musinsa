@@ -32,7 +32,7 @@ public인 repo로 보안상 명시X
   - spring boot : 3.3.4 (ga 중 최신)
   - java : openJDK 17(boot3은 최소 유구사항이 jdk 17, lts, 무료 jdk)
   - mybatis : 복잡한 통계성 쿼리
-  - swagger : 명세서
+  - swagger : boot3부터는 springdoc을 사용해야함
   - h2 : (생략)
 - frontend 모듈 : backend 모듈 구현 완료 후 진행 
 
