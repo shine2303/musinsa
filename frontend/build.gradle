@@ -18,18 +18,17 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
-tasks.named('bootJar') { //빌드할 때 bootjar 파일로 하겠다는 의미
+
+tasks.named('bootJar') {
     enabled = true
 }
 
-tasks.named('jar') { //빌드할 때 jar 파일로 하겠다는 의미
+tasks.named('jar') {
     enabled = false
 }
