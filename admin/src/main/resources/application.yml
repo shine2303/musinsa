@@ -1,3 +1,5 @@
+server:
+  port: 9090
 spring:
   application:
     name: admin
@@ -7,15 +9,15 @@ spring:
       enabled: true
       path: /h2
   datasource:
-    url: jdbc:h2:mem:musinsa
+    url: jdbc:h2:mem:test
     driver-class-name: org.h2.Driver
     username: sa
     password:
   sql:
     init:
       mode: always
-      schema-locations: classpath*:db/h2/schema.sql
-      data-locations: classpath*:db/h2/data.sql
+      schema-locations: classpath*:db.h2/schema.sql
+      data-locations: classpath*:db.h2/data.sql
       encoding: UTF-8
 
 #swagger
@@ -23,26 +25,7 @@ springdoc:
   swagger-ui:
     enabled: true
 app:
-  title: MUSINSA BACKEND
-  description: musinsa backend api
+  title: MUSINSA ADMIN
+  description: musinsa admin api
   version: v1.0.0
 
-#mybatis
-mybatis:
-  type-aliases-package: com.musinsa.backend
-  mapper-locations: classpath:mapper/**/*.xml
-  configuration:
-    map-underscore-to-camel-case: true
-    jdbc-type-for-null: NULL
-
-#logging
-logging:
-  level:
-    org:
-      springframework:
-        jdbc:
-          core: TRACE
-    com:
-      musinsa:
-        backend:
-          mapper: DEBUG

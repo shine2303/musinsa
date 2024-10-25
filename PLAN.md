@@ -83,12 +83,16 @@ public인 repo로 보안상 명시X
 - h2 설정
 - mybatis 설정
 - profile 분리 생략
+
+pr : https://github.com/shine2303/musinsa/pull/1
+
 #### admin 기능 개발
 - 브랜드 erd
 - 상품 erd
 - 브랜드 crud
 - 상품 crud
 - 테스트 코드
+  - 유니크 위반
 #### be 기능 개발
 - 테이블 생성 및 테스트 데이터 인입 기능 -> 자동화
 - 기능 1 & 단위테스트 & 통합테스트
