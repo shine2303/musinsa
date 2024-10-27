@@ -1,0 +1,73 @@
+## 순서대로 진행해주세요!!!
+
+### 1. 신규 브랜드 추가 성공
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+    "action":"INSERT",
+    "entityType":"BRAND",
+    "data":{
+        "name":"무신사"
+    }
+}
+
+### 2. 브랜드 추가 실패 - 중복
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"INSERT",
+  "entityType":"BRAND",
+  "data":{
+    "name":"무신사"
+  }
+}
+
+### 3. 브랜드 추가 실패 - 요청 파라미터 오타/누락
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "actions":"INSERT",
+  "entityType":"BRAND",
+  "data":{
+    "name":"무신사"
+  }
+}
+
+### 4. 브랜드 추가 실패 - 요청값 문제
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "actions":"INSERT",
+  "entityType":"BRANDㄴ",
+  "data":{
+    "name":"무신사"
+  }
+}
+
+### 5. 브랜드 추가 실패 - 상품 데이터 문제
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "actions":"INSERT",
+  "entityType":"BRANDㄴ",
+  "data":{
+    "상품명":"무신사"
+  }
+}
+
+### 6. 신규 브랜드 추가 성공
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"INSERT",
+  "entityType":"BRAND",
+  "data":{
+    "name":"29cm"
+  }
+}

@@ -1,2 +1,4 @@
 rootProject.name = 'musinsa'
-include('admin','backend','frontend')
+include 'backend'
+include 'admin'
+include 'frontend'

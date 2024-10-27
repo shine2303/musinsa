@@ -10,6 +10,9 @@ backend, admin, frontend 3가지 모듈로 구성된 프로젝트입니다.
 ## 실행 방법
 (빌드,구동,테스트 포함)
 
+`./gradlew clean build`
+
+http://localhost:9090/swagger-ui/index.html#/Manage/execute
 
 ## backend 스펙
 - spring boot : 3.3.4
@@ -18,8 +21,6 @@ backend, admin, frontend 3가지 모듈로 구성된 프로젝트입니다.
 - swagger : springdoc-openapi 2.5.0
 - db : h2
 - build 툴 : gradle
-
-## 추가 설명
 
 ### 모듈 분리 이유
 3가지 멀티 모듈로 구성하였다. 각 모듈별로 역할을 구분하기 위함이다.
@@ -34,5 +35,6 @@ admin은 고객이 아닌 관리지를 위한 프로젝트다. 관리자란 서�
 
 ex) 응답 포맷이 변경되면 presentation layer(controller)만 수정이 발생한다.
 
-
+admin : controller > facade > service > repository > data
+기본적인 레이어드 아키텍처에서 facade가 추가되었습니다. 도메인이 많아지면 facade 영역만 확장됩니다.
 
