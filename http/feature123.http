@@ -2,3 +2,6 @@
 
 ### 1번 기능
 GET http://localhost:8080/select/func1
+
+### 2번 기능
+GET http://localhost:8080/select/func2

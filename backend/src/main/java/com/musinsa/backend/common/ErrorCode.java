@@ -21,10 +21,9 @@ public enum ErrorCode {
 
     // Common Errors (1000번대)
 
-    // Brand Domain Errors (2000번대)
-    BRAND_NOT_FOUND(2000, "브랜드를 찾을 수 없습니다"),
-    BRAND_ALREADY_EXISTS(2001, "이미 존재하는 브랜드입니다"),
-    BRAND_NAME_INVALID(2002, "브랜드 이름이 올바르지 않습니다");
+
+    // DB Errors (2000번대)
+    DB_ACCESS_ERROR(2000, "DB에서 데이터 엑세스 중 오류가 발생했습니다.");
 
 
 

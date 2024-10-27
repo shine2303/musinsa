@@ -9,17 +9,34 @@
             brandName,
             price
         FROM (
-                 SELECT
-                     c.name as categoryName,
-                     b.name as brandName,
-                     p.name as productName,
-                     p.price,
-                     ROW_NUMBER() OVER (PARTITION BY c.id ORDER BY p.price, b.name ASC) as rn
-                 FROM product p
-                          JOIN category c ON p.category_id = c.id
-                          JOIN brand b ON p.brand_id = b.id
-                 WHERE p.is_active = true
-             ) ranked_products
+            SELECT
+                c.name as categoryName,
+                b.name as brandName,
+                p.name as productName,
+                p.price,
+                ROW_NUMBER() OVER (PARTITION BY c.id ORDER BY p.price, b.name ASC) as rn
+            FROM product p
+            JOIN category c ON p.category_id = c.id
+            JOIN brand b ON p.brand_id = b.id
+        ) ranked_products
         WHERE rn = 1
+    </select>
+
+    <select id="searchFun2" resultType="com.musinsa.backend.dto.Search2Response$Info">
+        SELECT
+            b.name as brand_name,
+            c.name as category_name,
+            p.price
+        FROM product p
+                 JOIN brand b ON p.brand_id = b.id
+                 JOIN category c ON p.category_id = c.id
+        WHERE b.id = (
+            SELECT brand_id
+            FROM product
+            GROUP BY brand_id
+            ORDER BY SUM(price) ASC
+            LIMIT 1
+            )
+        ORDER BY c.name;
     </select>
 </mapper>
