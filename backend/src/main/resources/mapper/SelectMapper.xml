@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.musinsa.backend.repository.SearchMapper">
+    <select id="searchFun1" resultType="com.musinsa.backend.dto.Search1Response$Row">
+        SELECT
+            categoryName,
+            brandName,
+            price
+        FROM (
+                 SELECT
+                     c.name as categoryName,
+                     b.name as brandName,
+                     p.name as productName,
+                     p.price,
+                     ROW_NUMBER() OVER (PARTITION BY c.id ORDER BY p.price, b.name ASC) as rn
+                 FROM product p
+                          JOIN category c ON p.category_id = c.id
+                          JOIN brand b ON p.brand_id = b.id
+                 WHERE p.is_active = true
+             ) ranked_products
+        WHERE rn = 1
+    </select>
+</mapper>
