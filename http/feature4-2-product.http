@@ -1,0 +1,128 @@
+## 순서대로 진행해주세요!!!
+
+### 1. 신규 상품 추가 성공
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"INSERT",
+  "entityType":"PRODUCT",
+  "data":{
+    "name":"무신사 후드집업",
+    "price": "1200",
+    "brand": {
+      "name":"A"
+    },
+    "category": {
+      "name": "아우터"
+    }
+  }
+}
+
+
+
+### 2. 추가 실패 - 중복
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"INSERT",
+  "entityType":"PRODUCT",
+  "data":{
+    "name":"무신사 후드집업",
+    "price": "1200",
+    "brand": {
+      "name":"A"
+    },
+    "category": {
+      "name": "아우터"
+    }
+  }
+}
+
+### 3. 추가 실패 - 가격 누락
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"INSERT",
+  "entityType":"PRODUCT",
+  "data":{
+    "name":"무신사 후드집업",
+    "brand": {
+      "name":"A"
+    },
+    "category": {
+      "name": "아우터"
+    }
+  }
+}
+
+### 4. 추가 실패 - 카테고리 누락
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"INSERT",
+  "entityType":"PRODUCT",
+  "data":{
+    "name":"무신사 후드집업",
+    "price": "1200",
+    "brand": {
+      "name":"A"
+    },
+    "category": {
+    }
+  }
+}
+
+### 5. 상품 변경 성공
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"UPDATE",
+  "entityType":"PRODUCT",
+  "data":{
+    "id":1,
+    "name":"무신사 후드집업",
+    "price": "1200",
+    "brand": {
+      "name":"A"
+    },
+    "category": {
+      "name": "아우터"
+    }
+  }
+}
+
+### 6. 상품 변경 실패 - 카테고리 부재
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"UPDATE",
+  "entityType":"PRODUCT",
+  "data":{
+    "id":1,
+    "name":"무신사 후드집업",
+    "price": "1200",
+    "brand": {
+      "name":"A"
+    }
+  }
+}
+
+### 7. 상품 삭제 성공
+POST localhost:9090/v1/manage/execute
+Content-Type: application/json
+
+{
+  "action":"DELETE",
+  "entityType":"PRODUCT",
+  "data":{
+    "id": 3
+  }
+}
+
+### h2로 삭제 조회 가능합니다. http://localhost:9090/h2/login.jsp?jsessionid=c41efe04f2a7fffa25f1c42e9499251a

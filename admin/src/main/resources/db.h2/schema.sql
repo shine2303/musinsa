@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS product;
+DROP TABLE IF EXISTS brand;
+DROP TABLE IF EXISTS category;
+
 CREATE TABLE IF NOT EXISTS category (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE,
@@ -12,7 +16,7 @@ CREATE TABLE IF NOT EXISTS brand (
     is_active BOOLEAN DEFAULT true,
     create_ymdt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_ymdt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+    );
 
 CREATE TABLE product (
      id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -24,6 +28,7 @@ CREATE TABLE product (
      create_ymdt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
      updated_ymdt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
-     FOREIGN KEY (category_id) REFERENCES category(id),
-     FOREIGN KEY (brand_id) REFERENCES brand(id)
+     CONSTRAINT fk_product_category FOREIGN KEY (category_id) REFERENCES category (id),
+     CONSTRAINT fk_product_brand FOREIGN KEY (brand_id) REFERENCES brand (id),
+     CONSTRAINT uk_product_name_price_category_brand UNIQUE (name, price, category_id, brand_id)
 );

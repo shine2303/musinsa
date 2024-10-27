@@ -3,10 +3,13 @@ package com.musinsa.admin.service;
 import com.musinsa.admin.common.ErrorCode;
 import com.musinsa.admin.common.exception.BusinessException;
 import com.musinsa.admin.domain.BrandEntity;
+import com.musinsa.admin.domain.CategoryEntity;
 import com.musinsa.admin.dto.BrandDto;
 import com.musinsa.admin.repository.BrandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,14 +18,16 @@ public class BrandService{
     private final BrandRepository brandRepository;
 
     public BrandDto insertBrand(BrandDto brandDto) {
-        //중복 브랜드 처리
-        if (brandRepository.existsByName(brandDto.getName())) {
-            throw new BusinessException(ErrorCode.BRAND_ALREADY_EXISTS, "이미 존재하는 브랜드명입니다.");
-        }
-
         BrandEntity savedBrand = brandRepository.save(brandDto.toEntity());
+        return BrandDto.from(savedBrand);
 
-        return BrandDto.builder().name(savedBrand.getName()).build();
+    }
 
+    public boolean existsByName(String name){
+        return brandRepository.existsByName(name);
+    }
+
+    public Optional<BrandEntity> findByName(String name){
+        return brandRepository.findByName(name);
     }
 }

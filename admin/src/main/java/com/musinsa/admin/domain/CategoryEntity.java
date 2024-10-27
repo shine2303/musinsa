@@ -1,24 +1,26 @@
 package com.musinsa.admin.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
-
 @Entity
-@Table(name = "brand")
+@Table(name = "category")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class BrandEntity {
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 100, nullable = false, unique = true)
+    @Column(length = 50, nullable = false, unique = true)
     private String name;
 
     @Column(name = "is_active")
@@ -33,7 +35,8 @@ public class BrandEntity {
     private LocalDateTime updatedYmdt;
 
     @Builder
-    public BrandEntity(String name) {
+    public CategoryEntity(String name) {
         this.name = name;
     }
+
 }

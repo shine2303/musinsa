@@ -39,4 +39,11 @@ public class GlobalExceptionHandler {
         String  message = "잘못된 입력값입니다. 입력값을 확인해주세요.";
         return ApiResponse.error(ErrorCode.BAD_REQUEST, message);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    protected ApiResponse<Void> handleIllegalArgumentException(IllegalArgumentException e) {
+        log.error("JSON parse error: {}", e.getMessage());
+        String  message = "잘못된 엔티티 데이터입니다. 데이터값을 확인해주세요.";
+        return ApiResponse.error(ErrorCode.BAD_REQUEST, message);
+    }
 }

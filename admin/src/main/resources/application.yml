@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: admin
+  jpa:
+    hibernate:
+      ddl-auto: none
+    defer-datasource-initialization: true
   #h2
   h2:
     console:
@@ -16,7 +20,8 @@ spring:
   sql:
     init:
       mode: always
-      schema-locations: classpath*:db.h2/schema.sql
+      schema-locations:
+        - classpath:db.h2/schema.sql
       data-locations: classpath*:db.h2/data.sql
       encoding: UTF-8
 
