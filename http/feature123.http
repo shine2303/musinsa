@@ -1,7 +1,7 @@
 ## 순서대로 진행해주세요!!!
 
 ### 1번 기능
-GET http://localhost:8080/select/func1
+GET http://localhost:8080/report/v1
 
 ### 2번 기능
-GET http://localhost:8080/select/func2
+GET http://localhost:8080/report/v2

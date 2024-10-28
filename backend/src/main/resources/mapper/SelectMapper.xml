@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.musinsa.backend.repository.SearchMapper">
-    <select id="searchFun1" resultType="com.musinsa.backend.dto.Search1Response$Row">
+    <select id="searchFun1" resultType="com.musinsa.backend.dto.Report1Response$Row">
         SELECT
             categoryName,
             brandName,
@@ -22,7 +22,7 @@
         WHERE rn = 1
     </select>
 
-    <select id="searchFun2" resultType="com.musinsa.backend.dto.Search2Response$Info">
+    <select id="searchFun2" resultType="com.musinsa.backend.dto.Report2Response$Info">
         SELECT
             b.name as brand_name,
             c.name as category_name,

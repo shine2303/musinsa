@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Search2Response {
+public class Report2Response {
 
     @JsonProperty("최저가")
     private final LowestPriceInfo lowestPrice;

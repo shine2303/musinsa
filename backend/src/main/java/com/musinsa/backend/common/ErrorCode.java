@@ -19,12 +19,15 @@ public enum ErrorCode {
     // Server Errors : 5xx
     INTERNAL_SERVER_ERROR(500, "서버 내부 오류가 발생했습니다"),
 
-    // Common Errors (1000번대)
+    // Common Errors (1000번대, 요구사항)
+    NON_RESULT_ERROR(1000, "조회 결과가 존재하지 않습니다."),
 
 
     // DB Errors (2000번대)
-    DB_ACCESS_ERROR(2000, "DB에서 데이터 엑세스 중 오류가 발생했습니다.");
-
+    DB_ACCESS_ERROR(2000, "DB에서 데이터 엑세스 중 오류가 발생했습니다."),
+    MYBATIS_SYSTEM_ERROR(2001, "mybatis 시스템 오류가 발생했습니다."),
+    SQL_GRAMMAR_ERROR(2002, "sql 문법 오류입니다."),
+    SQL_QUERY_TIMEOUT(2003, "sql 쿼리 timeout 발생했습니다.");
 
 
     private final int code;

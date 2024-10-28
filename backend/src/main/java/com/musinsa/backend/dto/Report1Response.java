@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Search1Response {
+public class Report1Response {
     private Long totalAmount;  // 모든 카테고리 최저가의 총합
     private List<Row> row;
 

@@ -32,6 +32,7 @@ public class ManageFacade {
 
     public Object execute(ManageRequest request) {
 
+        // 확장성 고려 : 저는 관리해야할 대상이 3개 이상이면 공통 클래스 1개와 개별 클래스(상품,브랜드,카테고리,xxx)형태로 구성했을 것
         return switch (request.getEntityType()) {
             case BRAND -> handleBrand(request);
             case PRODUCT -> handleProduct(request);
@@ -56,10 +57,9 @@ public class ManageFacade {
 
     private ProductDto handleProduct(ManageRequest request) {
 
-        //1. 상품 파라미터 검증
         ProductDto productDto = request.convertData(ProductDto.class);
 
-        //2. action 수행(crud)
+        //1. action 수행(crud)
         return switch (request.getAction()) {
             case INSERT -> handleInsertProduct(productDto);
             case UPDATE -> handleUpdateProduct(productDto);

@@ -30,8 +30,8 @@ public class ProductService {
                 brandEntity);
     }
 
-    public Optional<ProductEntity> findById(long id) {
-        return productRepository.findById(id);
+    public Optional<ProductEntity> findById(long productId) {
+        return productRepository.findById(productId);
     }
 
     public void deleteProduct(long productId) {
