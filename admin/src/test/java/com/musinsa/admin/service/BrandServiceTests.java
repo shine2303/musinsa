@@ -1,9 +1,7 @@
 package com.musinsa.admin.service;
 
 
-import com.musinsa.admin.common.ErrorCode;
-import com.musinsa.admin.common.exception.BusinessException;
-import com.musinsa.admin.domain.BrandEntity;
+import com.musinsa.admin.entity.BrandEntity;
 import com.musinsa.admin.dto.BrandDto;
 import com.musinsa.admin.repository.BrandRepository;
 import org.junit.jupiter.api.BeforeEach;

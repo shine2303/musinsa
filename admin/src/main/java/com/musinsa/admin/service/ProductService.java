@@ -2,9 +2,9 @@ package com.musinsa.admin.service;
 
 import com.musinsa.admin.common.ErrorCode;
 import com.musinsa.admin.common.exception.BusinessException;
-import com.musinsa.admin.domain.BrandEntity;
-import com.musinsa.admin.domain.CategoryEntity;
-import com.musinsa.admin.domain.ProductEntity;
+import com.musinsa.admin.entity.BrandEntity;
+import com.musinsa.admin.entity.CategoryEntity;
+import com.musinsa.admin.entity.ProductEntity;
 import com.musinsa.admin.dto.ManageRequest;
 import com.musinsa.admin.dto.ProductDto;
 import com.musinsa.admin.repository.BrandRepository;
@@ -13,8 +13,6 @@ import com.musinsa.admin.repository.ProductRepository;
 import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

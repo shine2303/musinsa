@@ -1,15 +1,10 @@
 package com.musinsa.admin.service;
 
 
-import com.musinsa.admin.common.ErrorCode;
-import com.musinsa.admin.common.exception.BusinessException;
-import com.musinsa.admin.domain.BrandEntity;
-import com.musinsa.admin.domain.CategoryEntity;
-import com.musinsa.admin.domain.ProductEntity;
-import com.musinsa.admin.dto.BrandDto;
+import com.musinsa.admin.entity.BrandEntity;
+import com.musinsa.admin.entity.CategoryEntity;
+import com.musinsa.admin.entity.ProductEntity;
 import com.musinsa.admin.dto.ProductDto;
-import com.musinsa.admin.repository.BrandRepository;
-import com.musinsa.admin.repository.CategoryRepository;
 import com.musinsa.admin.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +19,6 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 

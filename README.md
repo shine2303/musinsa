@@ -70,11 +70,14 @@ frontend는 뷰를 담당
 각 계층 별 역할이 명확히 구분되도록 구성하였습니다.
 
 backend 모듈은 단순한 패키지 구조를 가집니다.
+
+비교적 sql이 복잡하고(mybatis를 채택한 이유) 나머지 로직들은 간단하기에, 네이밍을 포함한 전체 구조를 간단하게 구현하였습니다.
+
 하지만 admin모듈은 레이어가 추가되었습니다.
 
 `controller > router > service > repository > data`
 
-action(insert,update,delete)을 분류하는 계층으로 이해해주시면 됩니다.
+router는 action(insert,update,delete)을 분류하는 계층으로 이해해주시면 됩니다.
 
 # 기타 작업 계획서
 아래 작업 계획서에는 실무에서의 진행과 유사하게 작성되었습니다. 

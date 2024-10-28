@@ -32,7 +32,7 @@ public class ServiceRouter {
         };
     }
 
-    private BrandDto handleBrand(ManageRequest request) {
+    private Object handleBrand(ManageRequest request) {
         //insert 만 수행.(해당 레이어에서 액션에 대한 예외처리)
         if (request.getAction() != ManageRequest.Action.INSERT) {
             throw new BusinessException(ErrorCode.BAD_REQUEST, "브랜드는 추가만 가능합니다.");
@@ -41,7 +41,7 @@ public class ServiceRouter {
         return brandService.insertBrand(request);
     }
 
-    private ProductDto handleProduct(ManageRequest request) {
+    private Object handleProduct(ManageRequest request) {
 
         //action 수행(crud)
         return switch (request.getAction()) {
