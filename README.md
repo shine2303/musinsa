@@ -47,14 +47,15 @@ backend, admin, frontend 3가지 모듈로 구성된 프로젝트입니다.
 - db : h2
 - build 툴 : gradle
 
-# 요청/응답 스펙
+# 요청/응답 스펙(정책 포함)
 아래 파일 내부에 기능별로 정의되어 있습니다.
 - [feature1.http](http/feature1.http)
 - [feature2.http](http/feature2.http)
 - [feature3.http](http/feature3.http)
 
-- [feature4-1-brand.http](http/feature4-1-brand.http)
-- [feature4-2-product.http](http/feature4-2-product.http)
+- [feature4-1-brand.http](http/feature4-1-brand.http)(정책 포함! 필수 확인!)
+- [feature4-2-product.http](http/feature4-2-product.http)(정책 포함! 필수 확인!)
+
 
 
 # 추가 설명
