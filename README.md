@@ -71,7 +71,7 @@ frontend는 뷰를 담당
 backend 모듈은 단순한 패키지 구조를 가집니다.
 하지만 admin모듈은 레이어가 추가되었습니다.
 
-`controller > facade > service > repository > data`
+`controller > router > service > repository > data`
 
 action(insert,update,delete)을 분류하는 계층으로 이해해주시면 됩니다.
 

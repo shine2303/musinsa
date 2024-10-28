@@ -1,9 +1,6 @@
-package com.musinsa.admin.facade;
+package com.musinsa.admin.router;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.jayway.jsonpath.internal.filter.ValueNodes;
 import com.musinsa.admin.common.ErrorCode;
 import com.musinsa.admin.common.exception.BusinessException;
 import com.musinsa.admin.domain.BrandEntity;
@@ -33,7 +30,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ManageFacadeTests {
+public class ServiceRouterTests {
 
     @Mock
     private BrandService brandService;
@@ -43,7 +40,7 @@ public class ManageFacadeTests {
     private CategoryService categoryService;
 
     @InjectMocks
-    private ManageFacade manageFacade;
+    private ServiceRouter serviceRouter;
 
     private ManageRequest brandRequest;
     private ManageRequest productRequest;
@@ -103,7 +100,7 @@ public class ManageFacadeTests {
         given(brandService.insertBrand(any(BrandDto.class))).willReturn(brandDto);
 
         // when
-        Object result = manageFacade.execute(brandRequest);
+        Object result = serviceRouter.execute(brandRequest);
 
         // then
         assertThat(result).isInstanceOf(BrandDto.class);
@@ -129,7 +126,7 @@ public class ManageFacadeTests {
         given(productService.saveProduct(any(), any(), any())).willReturn(productDto);
 
         // when
-        Object result = manageFacade.execute(productRequest);
+        Object result = serviceRouter.execute(productRequest);
 
         // then
         assertThat(result).isInstanceOf(ProductDto.class);
@@ -155,7 +152,7 @@ public class ManageFacadeTests {
         given(productService.saveProduct(any(), any(), any())).willReturn(productDto);
 
         // when
-        Object result = manageFacade.execute(productRequest);
+        Object result = serviceRouter.execute(productRequest);
 
         // then
         assertThat(result).isInstanceOf(ProductDto.class);
@@ -177,7 +174,7 @@ public class ManageFacadeTests {
         given(productService.findById(anyLong())).willReturn(Optional.of(productEntity));
 
         // when
-        Object result = manageFacade.execute(productRequest);
+        Object result = serviceRouter.execute(productRequest);
 
         // then
         assertThat(result).isInstanceOf(ProductDto.class);
@@ -200,7 +197,7 @@ public class ManageFacadeTests {
                 .build();
 
         // when & then
-        assertThatThrownBy(() -> manageFacade.execute(productRequest))
+        assertThatThrownBy(() -> serviceRouter.execute(productRequest))
                 .isInstanceOf(BusinessException.class)
                 .hasFieldOrPropertyWithValue("errorCode", ErrorCode.PRODUCT_NAME_INVALID);
     }
@@ -218,7 +215,7 @@ public class ManageFacadeTests {
         given(categoryService.findByName(anyString())).willReturn(Optional.empty());
 
         // when & then
-        assertThatThrownBy(() -> manageFacade.execute(productRequest))
+        assertThatThrownBy(() -> serviceRouter.execute(productRequest))
                 .isInstanceOf(BusinessException.class)
                 .hasFieldOrPropertyWithValue("errorCode", ErrorCode.CATEGORY_NOT_FOUND);
     }
