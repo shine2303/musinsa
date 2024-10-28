@@ -1,0 +1,55 @@
+### 1번 요청 스펙
+GET http://localhost:8080/report/v1
+
+## 응답 스펙
+{
+  "success": true,
+  "code": 200,
+  "message": "SUCCESS",
+  "data": {
+    "totalAmount": 34100,
+    "row": [
+      {
+        "categoryName": "가방",
+        "brandName": "A",
+        "price": 2000
+      },
+      {
+        "categoryName": "스니커즈",
+        "brandName": "A",
+        "price": 9000
+      },
+      {
+        "categoryName": "상의",
+        "brandName": "C",
+        "price": 10000
+      },
+      {
+        "categoryName": "모자",
+        "brandName": "D",
+        "price": 1500
+      },
+      {
+        "categoryName": "바지",
+        "brandName": "D",
+        "price": 3000
+      },
+      {
+        "categoryName": "아우터",
+        "brandName": "E",
+        "price": 5000
+      },
+      {
+        "categoryName": "액세서리",
+        "brandName": "F",
+        "price": 1900
+      },
+      {
+        "categoryName": "양말",
+        "brandName": "I",
+        "price": 1700
+      }
+    ]
+  },
+  "timestamp": "2024-10-28T20:17:24.255406"
+}

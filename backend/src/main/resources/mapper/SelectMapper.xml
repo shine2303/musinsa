@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.musinsa.backend.repository.SearchMapper">
+    <select id="search1" resultType="com.musinsa.backend.dto.Report1Response$Row">
+        SELECT
+            categoryName,
+            brandName,
+            price
+        FROM (
+            SELECT
+                c.name as categoryName,
+                b.name as brandName,
+                p.name as productName,
+                p.price,
+                ROW_NUMBER() OVER (PARTITION BY c.id ORDER BY p.price, b.name ASC) as rn
+            FROM product p
+            JOIN category c ON p.category_id = c.id
+            JOIN brand b ON p.brand_id = b.id
+        ) ranked_products
+        WHERE rn = 1
+    </select>
+
+    <select id="search2" resultType="com.musinsa.backend.dto.Report2Response$Info">
+        SELECT
+            b.name as brand_name,
+            c.name as category_name,
+            p.price
+        FROM product p
+                 JOIN brand b ON p.brand_id = b.id
+                 JOIN category c ON p.category_id = c.id
+        WHERE b.id = (
+            SELECT brand_id
+            FROM product
+            GROUP BY brand_id
+            ORDER BY SUM(price) ASC
+            LIMIT 1
+            )
+        ORDER BY c.name;
+    </select>
+
+    <select id="isExistCategory" resultType="boolean" parameterType="string">
+        select count(*)
+        from category
+        where name = #{categoryName}
+    </select>
+
+    <select id="search3" resultType="com.musinsa.backend.dto.Report3Response$Info">
+    SELECT
+        c.name as category_name,
+        MIN(b.name) as min_brand_name,
+        MIN(p.price) as min_price,
+        MAX(b.name) as max_brand_name,
+        MAX(p.price) as max_price
+    FROM product p
+    JOIN category c ON p.category_id = c.id
+    JOIN brand b ON p.brand_id = b.id
+    WHERE c.name = #{categoryName}
+    GROUP BY c.name;
+    </select>
+</mapper>
