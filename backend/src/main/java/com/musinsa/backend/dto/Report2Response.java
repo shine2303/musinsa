@@ -41,13 +41,8 @@ public class Report2Response {
     @Getter
     @Builder
     public static class Info {
-        @JsonProperty("브랜드")
         private String brandName;
-
-        @JsonProperty("카테고리")
         private String categoryName;
-
-        @JsonProperty("가격")
         private long price;
     }
 }

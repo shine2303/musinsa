@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.musinsa.backend.repository.SearchMapper">
-    <select id="searchFun1" resultType="com.musinsa.backend.dto.Report1Response$Row">
+    <select id="search1" resultType="com.musinsa.backend.dto.Report1Response$Row">
         SELECT
             categoryName,
             brandName,
@@ -22,7 +22,7 @@
         WHERE rn = 1
     </select>
 
-    <select id="searchFun2" resultType="com.musinsa.backend.dto.Report2Response$Info">
+    <select id="search2" resultType="com.musinsa.backend.dto.Report2Response$Info">
         SELECT
             b.name as brand_name,
             c.name as category_name,
@@ -40,17 +40,23 @@
         ORDER BY c.name;
     </select>
 
-    <select id="searchFun3" resultType="com.musinsa.backend.dto.Search3Response$Info">
+    <select id="isExistCategory" resultType="boolean" parameterType="string">
+        select count(*)
+        from category
+        where name = #{categoryName}
+    </select>
+
+    <select id="search3" resultType="com.musinsa.backend.dto.Report3Response$Info">
     SELECT
         c.name as category_name,
-        MIN(b.name) as min_brand,
+        MIN(b.name) as min_brand_name,
         MIN(p.price) as min_price,
-        MAX(b.name) as max_brand,
+        MAX(b.name) as max_brand_name,
         MAX(p.price) as max_price
     FROM product p
     JOIN category c ON p.category_id = c.id
     JOIN brand b ON p.brand_id = b.id
-    WHERE c.name = '상의'
+    WHERE c.name = #{categoryName}
     GROUP BY c.name;
     </select>
 </mapper>

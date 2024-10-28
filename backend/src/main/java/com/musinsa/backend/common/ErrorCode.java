@@ -20,7 +20,8 @@ public enum ErrorCode {
     INTERNAL_SERVER_ERROR(500, "서버 내부 오류가 발생했습니다"),
 
     // Common Errors (1000번대, 요구사항)
-    NON_RESULT_ERROR(1000, "조회 결과가 존재하지 않습니다."),
+    NOT_FOUND_RESULT(1000, "조회 결과가 존재하지 않습니다."),
+    NOT_FOUND_CATEGORY(1001, "해당 카테고리가 존재하지 않습니다."),
 
 
     // DB Errors (2000번대)

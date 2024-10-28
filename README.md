@@ -1,40 +1,84 @@
 # Summary
 backend, admin, frontend 3가지 모듈로 구성된 프로젝트입니다.
 
-- backend : 고객이 이용하는 외부 송출 api 모듈
-- admin : 관리자 전용 모듈
-- frontend : view를 담당하는 모듈
+- backend 모듈 : 고객이 이용하는 외부 송출 api 모듈
+- admin 모듈 : 관리자 전용 모듈
+- frontend 모듈 : view를 담당하는 모듈
 
-프로젝트 이해에 필요한 상세 내용은 하단 "추가 설명" 목차를 참고해주세요.
+프로젝트의 빠른 이해를위해 하단 "추가 설명" 목차를 참고해주세요.
 
-## 실행 방법
-(빌드,구동,테스트 포함)
+# 실행 방법
+### 빌드
+프로젝트 경로에서 아래 명령어를 수행해주세요. 단, 수행 환경은 java가 설치됨을 가정
+- `./gradlew clean build`
+- 모듈 별 : `./gradlew :backend:clean :backend:build`
+- 모듈 별 : `./gradlew :admin:clean :admin:build`
 
-`./gradlew clean build`
+(간혹 디펜던시가 꼬이는 상황이 발생하는데, 인텔리제이기준 > invalidate caches > 모두 체크 후 '수행')
 
-http://localhost:9090/swagger-ui/index.html#/Manage/execute
+### 구동
+1. IDE 구동
+2. jar 패키징
+- `./gradlew :backend:bootJar`
+  - `java -jar backend/build/libs/backend-0.0.1-SNAPSHOT.jar`
+- `./gradlew :admin:bootJar`
+  - `java -jar admin/build/libs/admin-0.0.1-SNAPSHOT.jar`
 
-## backend 스펙
-- spring boot : 3.3.4
+3. (비추천) 구동에 문제없지만 favicon 에러로그가 발생하여 비추천
+- `./gradlew :backend:bootRun`
+- `./gradlew :admin:bootRun`
+
+
+### 테스트
+프로젝트 루트 경로의 http 디렉토리를 참고해주세요.
+
+- [feature1.http](http/feature1.http)
+- [feature2.http](http/feature2.http)
+- [feature3.http](http/feature3.http)
+
+- [feature4-1-brand.http](http/feature4-1-brand.http)
+- [feature4-2-product.http](http/feature4-2-product.http)
+
+# 모듈 스펙
+- spring boot : 3.3.3
 - java : openjdk 17
 - mybatis : 3.0.3
-- swagger : springdoc-openapi 2.5.0
+- spring-data-jpa : 스타터 패키지 기반
 - db : h2
 - build 툴 : gradle
 
+# 요청/응답 스펙
+아래 파일 내부에 기능별로 정의되어 있습니다.
+- [feature1.http](http/feature1.http)
+- [feature2.http](http/feature2.http)
+- [feature3.http](http/feature3.http)
+
+- [feature4-1-brand.http](http/feature4-1-brand.http)
+- [feature4-2-product.http](http/feature4-2-product.http)
+
+
+# 추가 설명
 ### 모듈 분리 이유
-3가지 멀티 모듈로 구성하였다. 각 모듈별로 역할을 구분하기 위함이다.
+3가지 멀티 모듈로 구성하였으며, 각 모듈별로 역할을 구분.
 
-backend는 고객이 이용하는 프로젝트가 된다. (요구사항)
+backend는 고객이 이용하며 admin은 고객이 아닌 관리지를 위한 프로젝트(요구사항 기제)
 
-admin은 고객이 아닌 관리지를 위한 프로젝트다. 관리자란 서비스 운영에 관여하는 개발자를 포함한 운영자로 정의한다.
-
+frontend는 뷰를 담당
 
 ### 패키지 구조 설명
-주요 의도는 각 계층간의 의존성을 최소화하고, 각 계층 별 역할을 명확히 하는 것입니다.
+각 계층 별 역할이 명확히 구분되도록 구성하였습니다.
 
-ex) 응답 포맷이 변경되면 presentation layer(controller)만 수정이 발생한다.
+backend 모듈은 단순한 패키지 구조를 가집니다.
+하지만 admin모듈은 레이어가 추가되었습니다.
 
-admin : controller > facade > service > repository > data
-기본적인 레이어드 아키텍처에서 facade가 추가되었습니다. 도메인이 많아지면 facade 영역만 확장됩니다.
+`controller > facade > service > repository > data`
+
+action(insert,update,delete)을 분류하는 계층으로 이해해주시면 됩니다.
+
+# 기타 작업 계획서
+아래 작업 계획서에는 실무에서의 진행과 유사하게 작성되었습니다. 
+
+ex. 초기 분석, 스펙, 브랜치 전략 등을 포함
+
+[PLAN.md](PLAN.md)
 

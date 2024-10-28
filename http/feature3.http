@@ -1,0 +1,39 @@
+### 3번 요청 스펙
+GET http://localhost:8080/report/v3?categoryName=상의
+
+### 3번 기능 - 실패(파라미터명 오타)
+GET http://localhost:8080/report/v3?CategoryName=상의
+
+### 3번 기능 - 실패(카테고리명 없음)
+GET http://localhost:8080/report/v3?categoryName=상이
+
+## 성공 응답 스펙
+{
+  "success": true,
+  "code": 200,
+  "message": "SUCCESS",
+  "data": {
+    "카테고리": "상의",
+    "최저가": [
+      {
+        "브랜드": "A",
+        "가격": 10000
+      }
+    ],
+    "최고가": [
+      {
+        "브랜드": "I",
+        "가격": 11400
+      }
+    ]
+  },
+  "timestamp": "2024-10-28T20:20:24.2951"
+}
+
+## 실패 응답 스펙
+{
+  "success": false,
+  "code": 1001,
+  "message": "해당 카테고리가 존재하지 않습니다.",
+  "timestamp": "2024-10-28T20:20:57.647"
+}

@@ -38,12 +38,6 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MyBatisSystemException.class)
-    protected ApiResponse<Void> handleMethodArgumentNotValidException(MyBatisSystemException e) {
-        log.error("MyBatis system error occurred: {}", e.getMessage());
-        return ApiResponse.error(ErrorCode.MYBATIS_SYSTEM_ERROR, e.getMessage());
-    }
-
-    @ExceptionHandler(MyBatisSystemException.class)
     protected ApiResponse<Void> handleMyBatisSystemException(MyBatisSystemException e) {
         log.error("MyBatis system error occurred: {}", e.getMessage());
         return ApiResponse.error(ErrorCode.MYBATIS_SYSTEM_ERROR, e.getMessage());

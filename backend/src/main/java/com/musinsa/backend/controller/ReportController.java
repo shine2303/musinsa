@@ -3,6 +3,7 @@ package com.musinsa.backend.controller;
 import com.musinsa.backend.common.ApiResponse;
 import com.musinsa.backend.dto.Report1Response;
 import com.musinsa.backend.dto.Report2Response;
+import com.musinsa.backend.dto.Report3Response;
 import com.musinsa.backend.service.ReportService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,7 +21,7 @@ public class ReportController {
     private final ReportService reportService;
     /*
         네이밍 : 가독성을 위해 단순하게 네이밍하였습니다.
-        실무에서는 사용하지 않는 네이밍이지만, 과제 전형인 점을 고려하여 결정하였습니다.
+        실무에서는 사용하지 않는 네이밍&url 이지만, 과제 전형인 점을 고려하여 결정하였습니다.
      */
     @GetMapping("/v1")
     @Tag(name = "report", description = "1번 리포트")
@@ -36,4 +37,10 @@ public class ReportController {
         return ApiResponse.success(reportService.report2());
     }
 
+    @GetMapping("/v3")
+    @Tag(name = "report", description = "3번 리포트")
+    @Operation(description = "지정 카테고리의 최저/최고 브랜드")
+    public ApiResponse<Report3Response> execute3(String categoryName) {
+        return ApiResponse.success(reportService.report3(categoryName));
+    }
 }
