@@ -1,8 +1,8 @@
 package com.musinsa.admin.dto;
 
-import com.musinsa.admin.domain.BrandEntity;
-import com.musinsa.admin.domain.CategoryEntity;
-import com.musinsa.admin.domain.ProductEntity;
+import com.musinsa.admin.entity.BrandEntity;
+import com.musinsa.admin.entity.CategoryEntity;
+import com.musinsa.admin.entity.ProductEntity;
 import lombok.*;
 
 @Getter

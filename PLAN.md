@@ -102,8 +102,9 @@ pr : https://github.com/shine2303/musinsa/pull/2
 - 기능 3 & 단위테스트 & 통합테스트
 - admin 스웨거 제거
 
+pr : https://github.com/shine2303/musinsa/pull/2
 
 #### fe 기능 개발
 
 # 4. 기능 명세
-swagger 대체
+swagger 대체 -> http 파일에 정의

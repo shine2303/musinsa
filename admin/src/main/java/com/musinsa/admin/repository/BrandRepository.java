@@ -1,6 +1,6 @@
 package com.musinsa.admin.repository;
 
-import com.musinsa.admin.domain.BrandEntity;
+import com.musinsa.admin.entity.BrandEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

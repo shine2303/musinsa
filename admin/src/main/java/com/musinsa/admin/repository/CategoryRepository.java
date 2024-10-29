@@ -1,9 +1,7 @@
 package com.musinsa.admin.repository;
 
-import com.musinsa.admin.domain.CategoryEntity;
-import com.musinsa.admin.domain.ProductEntity;
+import com.musinsa.admin.entity.CategoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

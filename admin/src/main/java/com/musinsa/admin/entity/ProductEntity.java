@@ -1,4 +1,4 @@
-package com.musinsa.admin.domain;
+package com.musinsa.admin.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

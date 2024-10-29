@@ -2,8 +2,7 @@ package com.musinsa.admin.controller;
 
 import com.musinsa.admin.common.ApiResponse;
 import com.musinsa.admin.dto.ManageRequest;
-import com.musinsa.admin.dto.ManageResponse;
-import com.musinsa.admin.facade.ManageFacade;
+import com.musinsa.admin.router.ServiceRouter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class ManageController {
 
-    private final ManageFacade manageFacade;
+    private final ServiceRouter serviceRouter;
 
 
     /**
@@ -37,7 +36,7 @@ public class ManageController {
     @Operation(description = "브랜드 추가, 상품 추가/수정/삭제를 수행")
     public ApiResponse<Object> execute(@RequestBody @Valid ManageRequest request) {
 
-        Object result = manageFacade.execute(request);
+        Object result = serviceRouter.execute(request);
         return ApiResponse.success(result);
     }
 }

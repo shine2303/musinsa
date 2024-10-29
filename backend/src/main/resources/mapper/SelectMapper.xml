@@ -47,16 +47,15 @@
     </select>
 
     <select id="search3" resultType="com.musinsa.backend.dto.Report3Response$Info">
-    SELECT
+    SELECT DISTINCT
         c.name as category_name,
-        MIN(b.name) as min_brand_name,
-        MIN(p.price) as min_price,
-        MAX(b.name) as max_brand_name,
-        MAX(p.price) as max_price
+        FIRST_VALUE(b.name) OVER (ORDER BY p.price) as min_brand_name,
+        MIN(p.price) OVER () as min_price,
+        FIRST_VALUE(b.name) OVER (ORDER BY p.price DESC) as max_brand_name,
+        MAX(p.price) OVER () as max_price
     FROM product p
     JOIN category c ON p.category_id = c.id
     JOIN brand b ON p.brand_id = b.id
     WHERE c.name = #{categoryName}
-    GROUP BY c.name;
     </select>
 </mapper>
