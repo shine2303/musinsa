@@ -105,7 +105,7 @@ Content-Type: application/json
     "name":"무신사 후드집업",
     "price": "1200",
     "brand": {
-      "name":"A"
+      "name":"B"
     },
     "category": {
       "name": "아우터"
