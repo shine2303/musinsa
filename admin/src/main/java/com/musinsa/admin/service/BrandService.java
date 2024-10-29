@@ -8,11 +8,13 @@ import com.musinsa.admin.dto.ManageRequest;
 import com.musinsa.admin.repository.BrandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class BrandService{
 
     private final BrandRepository brandRepository;
@@ -31,10 +33,12 @@ public class BrandService{
 
     }
 
+    @Transactional(readOnly = true)
     public boolean existsByName(String name){
         return brandRepository.existsByName(name);
     }
 
+    @Transactional(readOnly = true)
     public Optional<BrandEntity> findByName(String name){
         return brandRepository.findByName(name);
     }
