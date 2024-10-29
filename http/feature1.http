@@ -7,49 +7,49 @@ GET http://localhost:8080/report/v1
   "code": 200,
   "message": "SUCCESS",
   "data": {
-    "totalAmount": 34100,
     "row": [
       {
-        "categoryName": "가방",
-        "brandName": "A",
-        "price": 2000
+        "카테고리": "가방",
+        "브랜드": "A",
+        "가격": 2000
       },
       {
-        "categoryName": "스니커즈",
-        "brandName": "A",
-        "price": 9000
+        "카테고리": "스니커즈",
+        "브랜드": "A",
+        "가격": 9000
       },
       {
-        "categoryName": "상의",
-        "brandName": "C",
-        "price": 10000
+        "카테고리": "상의",
+        "브랜드": "C",
+        "가격": 10000
       },
       {
-        "categoryName": "모자",
-        "brandName": "D",
-        "price": 1500
+        "카테고리": "모자",
+        "브랜드": "D",
+        "가격": 1500
       },
       {
-        "categoryName": "바지",
-        "brandName": "D",
-        "price": 3000
+        "카테고리": "바지",
+        "브랜드": "D",
+        "가격": 3000
       },
       {
-        "categoryName": "아우터",
-        "brandName": "E",
-        "price": 5000
+        "카테고리": "아우터",
+        "브랜드": "E",
+        "가격": 5000
       },
       {
-        "categoryName": "액세서리",
-        "brandName": "F",
-        "price": 1900
+        "카테고리": "액세서리",
+        "브랜드": "F",
+        "가격": 1900
       },
       {
-        "categoryName": "양말",
-        "brandName": "I",
-        "price": 1700
+        "카테고리": "양말",
+        "브랜드": "I",
+        "가격": 1700
       }
-    ]
+    ],
+    "총액": 34100
   },
-  "timestamp": "2024-10-28T20:17:24.255406"
+  "timestamp": "2024-10-29T19:48:53.747752"
 }
